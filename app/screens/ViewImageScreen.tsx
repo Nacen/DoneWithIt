@@ -8,6 +8,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
 import { colors } from "../config/colors";
 
 const backgroundImage = require("../assets/chair.jpg");
@@ -22,12 +24,20 @@ export const ViewImageScreen = () => {
       />
       <TouchableOpacity
         onPress={() => console.log("Pressed")}
-        style={styles.firstButton}
-      ></TouchableOpacity>
+        style={styles.closeIcon}
+      >
+        <MaterialCommunityIcons name="close" size={35} color={colors.white} />
+      </TouchableOpacity>
       <TouchableOpacity
         onPress={() => console.log("Pressed")}
-        style={styles.secondButton}
-      ></TouchableOpacity>
+        style={styles.deleteIcon}
+      >
+        <MaterialCommunityIcons
+          name="trash-can-outline"
+          size={35}
+          color={colors.white}
+        />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -42,20 +52,14 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
-  firstButton: {
-    backgroundColor: colors.primary,
+  closeIcon: {
     position: "absolute",
     top: 40,
-    left: 30,
-    width: 50,
-    height: 50,
+    left: 25,
   },
-  secondButton: {
-    backgroundColor: colors.secondary,
+  deleteIcon: {
     position: "absolute",
     top: 40,
-    right: 30,
-    width: 50,
-    height: 50,
+    right: 25,
   },
 });
