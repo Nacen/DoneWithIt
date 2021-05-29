@@ -9,38 +9,32 @@ import {
 import { colors } from "../config/colors";
 
 interface Props {
-  profileImage: ImageSourcePropType | string;
-  userName: string;
-  listingCount: number;
+  image: ImageSourcePropType | string;
+  title: string;
+  subTitle: string;
 }
 
-export const Lister = ({ profileImage, userName, listingCount }: Props) => {
+export const ListItem = ({ image, title, subTitle }: Props) => {
   return (
     <View style={styles.listerDetails}>
       <Image
-        source={
-          typeof profileImage === "string"
-            ? { uri: profileImage }
-            : profileImage
-        }
-        style={styles.profileImage}
+        source={typeof image === "string" ? { uri: image } : image}
+        style={styles.image}
       />
       <View style={styles.userDetails}>
-        <Text style={styles.userName}>{userName}</Text>
-        <Text style={styles.listingCount}>{listingCount} Listings</Text>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.subTitle}>{subTitle}</Text>
       </View>
     </View>
   );
 };
-
-export default Lister;
 
 const styles = StyleSheet.create({
   listerDetails: {
     flexDirection: "row",
     paddingHorizontal: 15,
   },
-  profileImage: {
+  image: {
     width: 75,
     height: 75,
     borderRadius: 50,
@@ -49,11 +43,12 @@ const styles = StyleSheet.create({
   userDetails: {
     paddingVertical: 2.5,
   },
-  userName: {
-    fontSize: 18,
+  title: {
+    fontSize: 20,
     marginBottom: 10,
+    fontWeight: "500",
   },
-  listingCount: {
+  subTitle: {
     color: colors.gray,
     fontSize: 18,
   },
