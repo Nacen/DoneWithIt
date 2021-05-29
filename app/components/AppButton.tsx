@@ -22,7 +22,7 @@ interface Styles {
   label: TextStyle;
 }
 
-export const Button = ({
+export const AppButton = ({
   isRounded = true,
   label,
   buttonStyle,
