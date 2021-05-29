@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
+import { AppButton } from "../components/AppButton";
 
 import { colors } from "../config/colors";
 
@@ -8,45 +9,63 @@ const logo = require("../assets/logo-red.png");
 
 export const WelcomeScreen = () => {
   return (
-    <View style={styles.container}>
-      <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
-        <View style={styles.logoContainer}>
-          <Image source={logo} style={styles.logo} />
-          <Text style={styles.heading}>Sell What you don't need</Text>
-        </View>
-      </ImageBackground>
-      <View style={styles.register} />
-      <View style={styles.login} />
-    </View>
+    <ImageBackground
+      source={backgroundImage}
+      blurRadius={1}
+      style={styles.backgroundImage}
+    >
+      <View style={styles.logoContainer}>
+        <Image source={logo} style={styles.logo} />
+        <Text style={styles.heading}>Sell What You Don't Need</Text>
+      </View>
+      <AppButton label="LOGIN" buttonStyle={styles.register} />
+      <AppButton label="REGISTER" buttonStyle={styles.login} />
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   backgroundImage: {
-    flex: 0.8,
+    flex: 1,
     resizeMode: "cover",
-    alignItems: "center",
+    justifyContent: "flex-end",
   },
+
   logoContainer: {
+    position: "absolute",
+    top: 50,
+    alignSelf: "center",
     alignItems: "center",
-    paddingTop: 50,
   },
+
   logo: {
-    width: 75,
-    height: 75,
+    width: 100,
+    height: 100,
     marginBottom: 20,
   },
-  heading: { alignItems: "center", fontSize: 22 },
+
+  heading: {
+    fontSize: 22,
+    fontWeight: "bold",
+  },
 
   register: {
     backgroundColor: colors.primary,
-    flex: 0.1,
+    alignItems: "center",
+    padding: 20,
+    width: "90%",
+    alignSelf: "center",
+    marginBottom: 15,
+    borderRadius: 50,
   },
+
   login: {
     backgroundColor: colors.secondary,
-    flex: 0.1,
+    alignItems: "center",
+    padding: 20,
+    width: "90%",
+    alignSelf: "center",
+    marginBottom: 15,
+    borderRadius: 50,
   },
 });
