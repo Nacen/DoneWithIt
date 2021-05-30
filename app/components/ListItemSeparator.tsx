@@ -6,7 +6,7 @@ interface Props {
   backgroundColor: string;
 }
 
-export const Separator = ({ backgroundColor }: Props) => {
+export const ListItemSeparator = ({ backgroundColor }: Props) => {
   return (
     <View style={[styles.separator, { backgroundColor: backgroundColor }]} />
   );
