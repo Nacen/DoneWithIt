@@ -5,18 +5,21 @@ import {
   View,
   Image,
   ImageSourcePropType,
+  ViewStyle,
 } from "react-native";
+
 import { colors } from "../config/colors";
 
 interface Props {
   image: ImageSourcePropType | string;
   title: string;
   subTitle: string;
+  listItemStyle?: ViewStyle;
 }
 
-export const ListItem = ({ image, title, subTitle }: Props) => {
+export const ListItem = ({ image, title, subTitle, listItemStyle }: Props) => {
   return (
-    <View style={styles.listerDetails}>
+    <View style={[styles.container, listItemStyle]}>
       <Image
         source={typeof image === "string" ? { uri: image } : image}
         style={styles.image}
@@ -30,9 +33,9 @@ export const ListItem = ({ image, title, subTitle }: Props) => {
 };
 
 const styles = StyleSheet.create({
-  listerDetails: {
+  container: {
     flexDirection: "row",
-    paddingHorizontal: 15,
+    padding: 15,
   },
   image: {
     width: 75,
