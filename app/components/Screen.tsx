@@ -1,12 +1,19 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, StatusBar, Platform } from "react-native";
+import {
+  StyleSheet,
+  SafeAreaView,
+  StatusBar,
+  Platform,
+  ViewStyle,
+} from "react-native";
 
 interface Props {
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  style?: ViewStyle;
 }
 
-const Screen = ({ children }: Props) => {
-  return <SafeAreaView style={styles.screen}>{children}</SafeAreaView>;
+const Screen = ({ children, style }: Props) => {
+  return <SafeAreaView style={[styles.screen, style]}>{children}</SafeAreaView>;
 };
 
 export default Screen;
