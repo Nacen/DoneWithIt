@@ -10,7 +10,7 @@ interface Props {}
 
 export const AccountScreen = (props: Props) => {
   return (
-    <Screen>
+    <Screen style={styles.accountScreen}>
       <ListItem
         image={require("../assets/mosh.jpg")}
         title="Mosh Hamedani"
@@ -23,6 +23,7 @@ export const AccountScreen = (props: Props) => {
             size={30}
             name="format-list-bulleted"
             color={colors.white}
+            style={[styles.listing, styles.iconStyle]}
           />
         )}
         title="My Listings"
@@ -34,7 +35,7 @@ export const AccountScreen = (props: Props) => {
             size={30}
             name="email"
             color={colors.white}
-            style={styles.messages}
+            style={[styles.messages, styles.iconStyle]}
           />
         )}
         title="My Messages"
@@ -46,6 +47,7 @@ export const AccountScreen = (props: Props) => {
             size={30}
             name="logout"
             color={colors.white}
+            style={[styles.logout, styles.iconStyle]}
           />
         )}
         title="Log Out"
@@ -56,14 +58,24 @@ export const AccountScreen = (props: Props) => {
 };
 
 const styles = StyleSheet.create({
+  accountScreen: {
+    backgroundColor: colors.lightGray,
+  },
   user: {
     marginBottom: 20,
   },
-  listing: { backgroundColor: colors.primary },
+  listing: {
+    backgroundColor: colors.primary,
+  },
   messages: {
     backgroundColor: colors.secondary,
   },
   logout: {
     backgroundColor: colors.yellow,
+  },
+  iconStyle: {
+    borderRadius: 50,
+    alignSelf: "center",
+    padding: 10,
   },
 });
