@@ -50,9 +50,9 @@ export const ListItem = ({
             />
           )}
           {icon && icon()}
-          <View style={styles.userDetails}>
+          <View style={styles.itemDetails}>
             <Text style={styles.title}>{title}</Text>
-            <Text style={styles.subTitle}>{subTitle}</Text>
+            {subTitle && <Text style={styles.subTitle}>{subTitle}</Text>}
           </View>
         </View>
       </TouchableHighlight>
@@ -64,15 +64,17 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     padding: 15,
+    backgroundColor: colors.white,
   },
   image: {
     width: 75,
     height: 75,
     borderRadius: 50,
-    marginRight: 10,
   },
-  userDetails: {
-    paddingVertical: 2.5,
+  itemDetails: {
+    marginLeft: 10,
+    flexDirection: "column",
+    justifyContent: "center",
   },
   title: {
     fontSize: 20,
@@ -80,7 +82,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   subTitle: {
-    color: colors.gray,
+    color: colors.darkGray,
     fontSize: 18,
   },
 });
