@@ -5,6 +5,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import Screen from "../components/Screen";
 import { colors } from "../config/colors";
+import { Icon } from "../components/Icon";
 
 interface Props {}
 
@@ -15,43 +16,31 @@ export const AccountScreen = (props: Props) => {
         image={require("../assets/mosh.jpg")}
         title="Mosh Hamedani"
         subTitle="programmingwithmosh@gmail.com"
-        listItemStyle={styles.user}
+        listItemStyle={styles.listingMargin}
       />
       <ListItem
         icon={() => (
-          <MaterialCommunityIcons
-            size={30}
+          <Icon
             name="format-list-bulleted"
-            color={colors.white}
-            style={[styles.listing, styles.iconStyle]}
+            size={50}
+            backgroundColor={colors.danger}
           />
         )}
         title="My Listings"
-        listItemStyle={styles.user}
+        listItemStyle={styles.listingMargin}
       />
       <ListItem
         icon={() => (
-          <MaterialCommunityIcons
-            size={30}
-            name="email"
-            color={colors.white}
-            style={[styles.messages, styles.iconStyle]}
-          />
+          <Icon name="email" size={50} backgroundColor={colors.secondary} />
         )}
         title="My Messages"
-        listItemStyle={styles.user}
+        listItemStyle={styles.listingMargin}
       />
       <ListItem
         icon={() => (
-          <MaterialCommunityIcons
-            size={30}
-            name="logout"
-            color={colors.white}
-            style={[styles.logout, styles.iconStyle]}
-          />
+          <Icon name="logout" size={50} backgroundColor={colors.yellow} />
         )}
         title="Log Out"
-        listItemStyle={styles.user}
       />
     </Screen>
   );
@@ -61,7 +50,7 @@ const styles = StyleSheet.create({
   accountScreen: {
     backgroundColor: colors.lightGray,
   },
-  user: {
+  listingMargin: {
     marginBottom: 20,
   },
   listing: {
