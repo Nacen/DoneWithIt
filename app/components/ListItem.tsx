@@ -8,13 +8,13 @@ import {
   ViewStyle,
   TouchableHighlight,
   ImageStyle,
+  ImageComponent,
 } from "react-native";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 
 import { colors } from "../config/colors";
 
 interface Props {
-  image?: ImageSourcePropType | string;
   title: string;
   subTitle?: string;
   listItemStyle?: ViewStyle;
@@ -22,19 +22,17 @@ interface Props {
   renderLeftActions?: () => React.ReactNode;
   renderRightActions?: () => React.ReactNode;
   imageStyle?: ImageStyle;
-  icon?: () => React.ReactNode;
+  ImageComponent?: React.ReactNode;
 }
 
 export const ListItem = ({
-  image,
   title,
   subTitle,
   listItemStyle,
   onPress,
   renderLeftActions,
   renderRightActions,
-  imageStyle,
-  icon,
+  ImageComponent,
 }: Props) => {
   return (
     <Swipeable
@@ -43,13 +41,7 @@ export const ListItem = ({
     >
       <TouchableHighlight underlayColor={colors.gray} onPress={onPress}>
         <View style={[styles.container, listItemStyle]}>
-          {image && (
-            <Image
-              source={typeof image === "string" ? { uri: image } : image}
-              style={[styles.image, imageStyle]}
-            />
-          )}
-          {icon && icon()}
+          {ImageComponent}
           <View style={styles.itemDetails}>
             <Text style={styles.title}>{title}</Text>
             {subTitle && <Text style={styles.subTitle}>{subTitle}</Text>}
@@ -65,11 +57,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 15,
     backgroundColor: colors.white,
-  },
-  image: {
-    width: 75,
-    height: 75,
-    borderRadius: 50,
+    marginLeft: 10,
   },
   itemDetails: {
     marginLeft: 10,
