@@ -18,7 +18,6 @@ export const Icon = ({
   iconColor = colors.white,
   style,
 }: Props) => {
-  console.log(name, iconColor);
   return (
     <View
       style={{
