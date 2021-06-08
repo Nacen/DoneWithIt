@@ -15,6 +15,7 @@ interface Props {
   label: string;
   buttonStyle?: StyleProp<ViewStyle>;
   labelStyle?: StyleProp<TextStyle>;
+  onPress: () => void;
 }
 
 interface Styles {
@@ -27,9 +28,10 @@ export const AppButton = ({
   label,
   buttonStyle,
   labelStyle,
+  onPress,
 }: Props) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <View
         style={[
           styles.button,
@@ -46,16 +48,18 @@ export const AppButton = ({
 const styles = StyleSheet.create<Styles>({
   button: {
     backgroundColor: colors.primary,
+    padding: 15,
   },
   label: {
     color: colors.white,
     fontWeight: "400",
     fontSize: 20,
+    alignSelf: "center",
   },
 });
 
 const borderStyle = StyleSheet.create({
   radius: {
-    borderRadius: 10,
+    borderRadius: 50,
   },
 });
