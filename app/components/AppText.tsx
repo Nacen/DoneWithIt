@@ -1,10 +1,10 @@
 import React from "react";
-import { Text, ViewStyle } from "react-native";
+import { Text, TextStyle } from "react-native";
 import { globalStyles } from "../config/styles";
 
 interface Props {
   children: React.ReactNode;
-  style?: ViewStyle;
+  style?: TextStyle;
 }
 
 export const AppText = ({ children, style }: Props) => {
