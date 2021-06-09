@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet } from "react-native";
 import { useFormikContext } from "formik";
 
-import { materialType } from "../config/materialTypes";
-import { AppTextInput } from "./AppTextInput";
+import { materialType } from "../../config/materialTypes";
+import { AppTextInput } from "../AppTextInput";
 import { ErrorMessage } from "./ErrorMessage";
 
 interface Props {

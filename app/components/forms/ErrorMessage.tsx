@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, TextStyle } from "react-native";
-import { AppText } from "./AppText";
+import { AppText } from "../AppText";
 
 interface Props {
   error: string | undefined;
@@ -9,7 +9,6 @@ interface Props {
 }
 
 export const ErrorMessage = ({ error, visible, style }: Props) => {
-  console.log(error);
   if (!visible || !error) return null;
   return (
     <AppText style={StyleSheet.flatten([styles.error, style])}>{error}</AppText>
