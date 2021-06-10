@@ -1,7 +1,6 @@
 import React from "react";
 import { FlatList, Image, StyleSheet, Text, View } from "react-native";
-import { ListItem } from "../components/ListItem";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { ListItem } from "../components/lists/ListItem";
 
 import Screen from "../components/Screen";
 import { colors } from "../config/colors";
