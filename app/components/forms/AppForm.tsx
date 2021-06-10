@@ -8,7 +8,7 @@ interface Props {
   };
   onSubmit: (args: any) => void;
   validationSchema: { [key: string]: any };
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const AppForm = ({
