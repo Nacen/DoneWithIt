@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import { Card } from "../components/Card";
-import { ListItem } from "../components/ListItem";
+import { ListItem } from "../components/lists/ListItem";
 import { colors } from "../config/colors";
 
 export const ListingDetailsScreen = () => {
@@ -17,7 +17,7 @@ export const ListingDetailsScreen = () => {
       <ListItem
         subTitle="5 Listings"
         title="Mosh Hamedani"
-        image={require("../assets/mosh.jpg")}
+        ImageComponent={<Image source={require("../assets/mosh.jpg")} />}
       />
     </View>
   );
