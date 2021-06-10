@@ -18,8 +18,16 @@ export const WelcomeScreen = () => {
         <Image source={logo} style={styles.logo} />
         <Text style={styles.heading}>Sell What You Don't Need</Text>
       </View>
-      <AppButton label="LOGIN" buttonStyle={styles.register} />
-      <AppButton label="REGISTER" buttonStyle={styles.login} />
+      <AppButton
+        label="LOGIN"
+        buttonStyle={styles.register}
+        onPress={() => console.log("Login")}
+      />
+      <AppButton
+        label="REGISTER"
+        buttonStyle={styles.login}
+        onPress={() => console.log("Register")}
+      />
     </ImageBackground>
   );
 };
