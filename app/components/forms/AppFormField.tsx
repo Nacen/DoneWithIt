@@ -5,20 +5,13 @@ import { useFormikContext } from "formik";
 import { materialType } from "../../config/materialTypes";
 import { AppTextInput } from "../AppTextInput";
 import { ErrorMessage } from "./ErrorMessage";
+import { Errors, Touched } from "../../config/types";
 
 interface Props {
   fieldName: string;
   icon?: materialType["name"];
   [prop: string]: any;
 }
-
-type Errors = {
-  [fieldName: string]: string;
-};
-
-type Touched = {
-  [fieldName: string]: boolean;
-};
 
 export const AppFormField = ({ fieldName, icon, ...otherProps }: Props) => {
   const { setFieldTouched, handleChange, errors, touched } = useFormikContext();
