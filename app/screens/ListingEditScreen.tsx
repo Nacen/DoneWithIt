@@ -44,7 +44,7 @@ export const ListingEditScreen = (props: Props) => {
         <AppFormPicker
           placeholder="Category"
           items={categories}
-          onSelectItem={setItemCategory}
+          name="Category"
         />
         <AppFormField
           fieldName="description"
