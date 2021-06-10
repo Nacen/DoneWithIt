@@ -21,7 +21,7 @@ export type Category = {
   value: number;
 };
 
-interface Props {
+export interface AppPickerProps {
   icon?: materialType["name"];
   placeholder: string;
   items: Category[];
@@ -35,7 +35,7 @@ export const AppPicker = ({
   items,
   selectedItem,
   onSelectItem,
-}: Props) => {
+}: AppPickerProps) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const openModal = () => setIsModalVisible(true);
