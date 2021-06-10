@@ -4,16 +4,13 @@ import {
   FlatList,
   Modal,
   StyleSheet,
-  Text,
   TouchableWithoutFeedback,
   View,
-  ViewStyle,
 } from "react-native";
 import { globalStyles } from "../config/styles";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { materialType } from "../config/materialTypes";
 import { AppText } from "./AppText";
-import Screen from "./Screen";
 import PickerItem from "./PickerItem";
 
 export type Category = {
@@ -65,7 +62,6 @@ export const AppPicker = ({
       </TouchableWithoutFeedback>
 
       <Modal visible={isModalVisible} animationType="slide">
-        {/* <Screen> */}
         <FlatList
           data={items}
           keyExtractor={(item) => item.value.toString()}
@@ -80,8 +76,6 @@ export const AppPicker = ({
           )}
         />
         <Button onPress={closeModal} title="Close" />
-
-        {/* </Screen> */}
       </Modal>
     </>
   );
