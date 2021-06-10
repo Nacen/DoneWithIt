@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 
-import { colors } from "../config/colors";
+import { colors } from "../../config/colors";
 
 interface Props {
   title: string;
@@ -22,6 +22,7 @@ interface Props {
   renderLeftActions?: () => React.ReactNode;
   renderRightActions?: () => React.ReactNode;
   imageStyle?: ImageStyle;
+  image?: ImageSourcePropType;
   ImageComponent?: React.ReactNode;
 }
 
@@ -32,6 +33,8 @@ export const ListItem = ({
   onPress,
   renderLeftActions,
   renderRightActions,
+  imageStyle,
+  image,
   ImageComponent,
 }: Props) => {
   return (
@@ -41,6 +44,7 @@ export const ListItem = ({
     >
       <TouchableHighlight underlayColor={colors.gray} onPress={onPress}>
         <View style={[styles.container, listItemStyle]}>
+          {image ? <Image source={image} style={imageStyle} /> : null}
           {ImageComponent}
           <View style={styles.itemDetails}>
             <Text style={styles.title}>{title}</Text>
