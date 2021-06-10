@@ -1,21 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { WelcomeScreen } from "./app/screens/WelcomeScreen";
-import { ViewImageScreen } from "./app/screens/ViewImageScreen";
-import { ListingDetailsScreen } from "./app/screens/ListingDetailsScreen";
-import { MessagesScreen } from "./app/screens/MessagesScreen";
-import { AccountScreen } from "./app/screens/AccountScreen";
+import { StyleSheet } from "react-native";
+
+import { ListingEditScreen } from "./app/screens/ListingEditScreen";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      {/* <WelcomeScreen /> */}
-      {/* <ListingDetailsScreen /> */}
-      {/* <MessagesScreen /> */}
-      <AccountScreen />
-      {/* <ViewImageScreen /> */}
-    </View>
-  );
+  return <ListingEditScreen />;
 }
 
 const styles = StyleSheet.create({
