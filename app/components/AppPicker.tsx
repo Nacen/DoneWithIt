@@ -25,6 +25,7 @@ export interface AppPickerProps {
   items: Category[];
   onSelectItem: (item: Category) => void;
   selectedItem?: Category;
+  width?: number | string | undefined;
 }
 
 export const AppPicker = ({
@@ -33,6 +34,7 @@ export const AppPicker = ({
   items,
   selectedItem,
   onSelectItem,
+  width = "100%",
 }: AppPickerProps) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -42,7 +44,7 @@ export const AppPicker = ({
   return (
     <>
       <TouchableWithoutFeedback onPress={openModal}>
-        <View style={styles.container}>
+        <View style={[styles.container, { width: width }]}>
           {icon && (
             <MaterialCommunityIcons
               name={icon}
@@ -90,7 +92,6 @@ const styles = StyleSheet.create({
     backgroundColor: globalStyles.colors.lightGray,
     borderRadius: 25,
     flexDirection: "row",
-    width: "100%",
     padding: 15,
     marginVertical: 10,
     alignItems: "center",

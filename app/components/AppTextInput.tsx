@@ -7,10 +7,11 @@ import { globalStyles } from "../config/styles";
 interface Props {
   icon?: materialType["name"];
   style?: TextStyle;
+  width?: string | number | undefined;
   [x: string]: any;
 }
 
-export const AppTextInput = ({ icon, style, ...otherProps }: Props) => {
+export const AppTextInput = ({ icon, style, width, ...otherProps }: Props) => {
   return (
     <View style={styles.container}>
       {icon && (
@@ -22,7 +23,7 @@ export const AppTextInput = ({ icon, style, ...otherProps }: Props) => {
         />
       )}
       <TextInput
-        style={[globalStyles.text, styles.textInput, style]}
+        style={[globalStyles.text, styles.textInput, style, { width: width }]}
         {...otherProps}
       />
     </View>
@@ -34,7 +35,6 @@ const styles = StyleSheet.create({
     backgroundColor: globalStyles.colors.lightGray,
     borderRadius: 25,
     flexDirection: "row",
-    width: "100%",
     padding: 15,
     marginVertical: 10,
     alignItems: "center",

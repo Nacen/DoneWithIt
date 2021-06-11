@@ -10,10 +10,16 @@ import { Errors, Touched } from "../../config/types";
 interface Props {
   fieldName: string;
   icon?: materialType["name"];
+  width?: number | string | undefined;
   [prop: string]: any;
 }
 
-export const AppFormField = ({ fieldName, icon, ...otherProps }: Props) => {
+export const AppFormField = ({
+  fieldName,
+  icon,
+  width,
+  ...otherProps
+}: Props) => {
   const { setFieldTouched, handleChange, errors, touched } = useFormikContext();
 
   return (
@@ -23,6 +29,7 @@ export const AppFormField = ({ fieldName, icon, ...otherProps }: Props) => {
         onBlur={() => setFieldTouched(fieldName)}
         onChangeText={handleChange(fieldName)}
         {...otherProps}
+        width={width}
       />
       <ErrorMessage
         error={(errors as Errors)[fieldName]}

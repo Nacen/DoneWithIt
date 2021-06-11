@@ -7,15 +7,17 @@ import { Errors, Touched } from "../../config/types";
 
 interface Props {
   items: Category[];
+  width?: number | string | undefined;
   name: string;
   placeholder: string;
 }
 
-export const AppFormPicker = ({ items, name, placeholder }: Props) => {
+export const AppFormPicker = ({ items, name, placeholder, width }: Props) => {
   const { errors, touched, values, setFieldValue } = useFormikContext();
   return (
     <>
       <AppPicker
+        width={width}
         items={items}
         onSelectItem={(item) => setFieldValue(name, item)}
         placeholder={placeholder}
