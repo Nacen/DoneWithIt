@@ -1,7 +1,6 @@
 import React from "react";
 import {
   View,
-  Text,
   StyleSheet,
   StyleProp,
   Image,
@@ -12,6 +11,7 @@ import {
 } from "react-native";
 
 import { colors } from "../config/colors";
+import { AppText } from "./AppText";
 
 interface Props {
   cardStyle?: StyleProp<ViewStyle>;
@@ -51,11 +51,23 @@ export const Card = ({
     <View style={[styles.card, cardStyle]}>
       <Image source={imageSource} style={[styles.image, imageStyle]} />
       <View style={[styles.detailsContainer, detailsContainerStyle]}>
-        <Text style={[styles.title, titleStyle]}>{title}</Text>
-        <Text style={[styles.subTitle, subTitleStyle]}>{subTitle}</Text>
-        <Text style={[styles.description, descriptionStyle]}>
+        <AppText
+          style={StyleSheet.flatten([styles.title, titleStyle])}
+          numberOfLines={1}
+        >
+          {title}
+        </AppText>
+        <AppText
+          style={StyleSheet.flatten([styles.subTitle, subTitleStyle])}
+          numberOfLines={2}
+        >
+          {subTitle}
+        </AppText>
+        <AppText
+          style={StyleSheet.flatten([styles.description, descriptionStyle])}
+        >
           {description}
-        </Text>
+        </AppText>
       </View>
     </View>
   );
