@@ -39,12 +39,13 @@ export const ListingEditScreen = (props: Props) => {
         initialValues={initialValues}
         onSubmit={(values) => console.log(values)}
       >
-        <AppFormField fieldName="title" placeholder="Title" />
-        <AppFormField fieldName="price" placeholder="Price" />
+        <AppFormField fieldName="title" placeholder="Title" width={120} />
+        <AppFormField fieldName="price" placeholder="Price" width={120} />
         <AppFormPicker
           placeholder="Category"
           items={categories}
           name="Category"
+          width="50%"
         />
         <AppFormField
           fieldName="description"
