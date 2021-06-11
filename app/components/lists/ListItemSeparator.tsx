@@ -10,11 +10,11 @@ export const ListItemSeparator = ({ backgroundColor }: Props) => (
   <View
     style={[
       styles.separator,
-      { backgroundColor: backgroundColor ? backgroundColor : colors.black },
+      { backgroundColor: backgroundColor ? backgroundColor : colors.gray },
     ]}
   />
 );
 
 const styles = StyleSheet.create({
-  separator: { width: "100%", height: 1, backgroundColor: colors.black },
+  separator: { width: "100%", height: 1 },
 });
