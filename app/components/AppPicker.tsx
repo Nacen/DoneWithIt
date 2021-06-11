@@ -7,12 +7,14 @@ import {
   TouchableWithoutFeedback,
   View,
 } from "react-native";
+
 import { globalStyles } from "../config/styles";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { materialType } from "../config/materialTypes";
 import { AppText } from "./AppText";
 import PickerItem from "./PickerItem";
 import { colors } from "../config/colors";
+import { AppButton } from "./AppButton";
 
 export type Category = {
   label: string;
@@ -26,6 +28,7 @@ export interface AppPickerProps {
   onSelectItem: (item: Category) => void;
   selectedItem?: Category;
   width?: number | string | undefined;
+  PickerItemComponent?: React.VFC<any>;
 }
 
 export const AppPicker = ({
@@ -34,6 +37,7 @@ export const AppPicker = ({
   items,
   selectedItem,
   onSelectItem,
+  PickerItemComponent = PickerItem,
   width = "100%",
 }: AppPickerProps) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -68,20 +72,27 @@ export const AppPicker = ({
       </TouchableWithoutFeedback>
 
       <Modal visible={isModalVisible} animationType="slide">
-        <FlatList
-          data={items}
-          keyExtractor={(item) => item.value.toString()}
-          renderItem={({ item }) => (
-            <PickerItem
-              label={item.label}
-              onPress={() => {
-                closeModal();
-                onSelectItem(item);
-              }}
-            />
-          )}
-        />
-        <Button onPress={closeModal} title="Close" />
+        <View style={{ flex: 1 }}>
+          <AppButton
+            onPress={closeModal}
+            label="Close"
+            buttonStyle={styles.closeButton}
+          />
+
+          <FlatList
+            data={items}
+            keyExtractor={(item) => item.value.toString()}
+            renderItem={({ item }) => (
+              <PickerItemComponent
+                label={item.label}
+                onPress={() => {
+                  closeModal();
+                  onSelectItem(item);
+                }}
+              />
+            )}
+          />
+        </View>
       </Modal>
     </>
   );
@@ -105,5 +116,8 @@ const styles = StyleSheet.create({
   placeholder: {
     flex: 1,
     color: colors.darkGray,
+  },
+  closeButton: {
+    borderRadius: 0,
   },
 });

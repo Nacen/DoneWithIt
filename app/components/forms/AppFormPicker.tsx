@@ -10,9 +10,16 @@ interface Props {
   width?: number | string | undefined;
   name: string;
   placeholder: string;
+  PickerItemComponent?: React.VFC<any>;
 }
 
-export const AppFormPicker = ({ items, name, placeholder, width }: Props) => {
+export const AppFormPicker = ({
+  items,
+  name,
+  placeholder,
+  width,
+  PickerItemComponent,
+}: Props) => {
   const { errors, touched, values, setFieldValue } = useFormikContext();
   return (
     <>
@@ -22,6 +29,7 @@ export const AppFormPicker = ({ items, name, placeholder, width }: Props) => {
         onSelectItem={(item) => setFieldValue(name, item)}
         placeholder={placeholder}
         selectedItem={(values as { [key: string]: any })[name]}
+        PickerItemComponent={PickerItemComponent}
       />
       <ErrorMessage
         error={(errors as Errors)[name]}
