@@ -27,7 +27,11 @@ const messagesData = [
   {
     id: 4,
     title: "M3M3M3M3",
-    description: "Description Three",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas malesuada arcu a velit semper varius. Nam non leo enim. Cras quis fermentum neque. Aliquam ut sagittis mauris. Sed et luctus ex, vel molestie lorem. Cras pretium vestibulum elit, a volutpat augue dignissim ac. Aenean nunc lectus, pharetra nec luctus ut, suscipit at justo. Donec id tellus id velit sodales mattis finibus eu magna.
+
+    Morbi ullamcorper, felis eget imperdiet luctus, elit erat placerat lectus, at maximus turpis felis quis turpis. Pellentesque et purus viverra, vulputate nulla nec, luctus velit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris et aliquet nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam ac turpis blandit diam molestie venenatis. Etiam accumsan dui et ex bibendum tincidunt viverra eu neque.
+    
+    `,
     image: require("../assets/mosh.jpg"),
   },
 ];
@@ -59,6 +63,7 @@ export const MessagesScreen = ({ initialMessages = messagesData }: Props) => {
         renderItem={({ item }) => (
           <ListItem
             image={item.image}
+            imageStyle={styles.image}
             title={item.title}
             subTitle={item.description}
             key={item.id}
@@ -86,4 +91,9 @@ export const MessagesScreen = ({ initialMessages = messagesData }: Props) => {
 
 const styles = StyleSheet.create({
   container: {},
+  image: {
+    width: 60,
+    height: 60,
+    borderRadius: 60,
+  },
 });
