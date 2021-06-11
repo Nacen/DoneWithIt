@@ -1,18 +1,18 @@
 import React from "react";
 import {
   StyleSheet,
-  Text,
   View,
   Image,
   ImageSourcePropType,
   ViewStyle,
   TouchableHighlight,
   ImageStyle,
-  ImageComponent,
 } from "react-native";
 import Swipeable from "react-native-gesture-handler/Swipeable";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { colors } from "../../config/colors";
+import { AppText } from "../AppText";
 
 interface Props {
   title: string;
@@ -47,9 +47,20 @@ export const ListItem = ({
           {image ? <Image source={image} style={imageStyle} /> : null}
           {ImageComponent}
           <View style={styles.itemDetails}>
-            <Text style={styles.title}>{title}</Text>
-            {subTitle && <Text style={styles.subTitle}>{subTitle}</Text>}
+            <AppText style={styles.title} numberOfLines={1}>
+              {title}
+            </AppText>
+            {subTitle && (
+              <AppText style={styles.subTitle} numberOfLines={2}>
+                {subTitle}
+              </AppText>
+            )}
           </View>
+          <MaterialCommunityIcons
+            name="chevron-right"
+            size={25}
+            color={colors.darkGray}
+          />
         </View>
       </TouchableHighlight>
     </Swipeable>
@@ -62,11 +73,13 @@ const styles = StyleSheet.create({
     padding: 15,
     backgroundColor: colors.white,
     marginLeft: 10,
+    alignItems: "center",
   },
   itemDetails: {
     marginLeft: 10,
     flexDirection: "column",
     justifyContent: "center",
+    flex: 1,
   },
   title: {
     fontSize: 20,
