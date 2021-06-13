@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Image, StyleSheet } from "react-native";
 import * as Yup from "yup";
 import { Category } from "../components/AppPicker";
+import { CategoryPickerItem } from "../components/CategoryPickerItem";
 
 import { AppForm, AppFormField, SubmitButton } from "../components/forms";
 import { AppFormPicker } from "../components/forms/AppFormPicker";
@@ -46,6 +47,8 @@ export const ListingEditScreen = (props: Props) => {
           items={categories}
           name="Category"
           width="50%"
+          numOfColumns={3}
+          PickerItemComponent={CategoryPickerItem}
         />
         <AppFormField
           fieldName="description"
