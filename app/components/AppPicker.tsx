@@ -19,6 +19,8 @@ import { AppButton } from "./AppButton";
 export type Category = {
   label: string;
   value: number;
+  backgroundColor?: string;
+  icon?: materialType["name"];
 };
 
 export interface AppPickerProps {
@@ -29,6 +31,7 @@ export interface AppPickerProps {
   selectedItem?: Category;
   width?: number | string | undefined;
   PickerItemComponent?: React.VFC<any>;
+  numOfColumns?: number;
 }
 
 export const AppPicker = ({
@@ -39,6 +42,7 @@ export const AppPicker = ({
   onSelectItem,
   PickerItemComponent = PickerItem,
   width = "100%",
+  numOfColumns = 1,
 }: AppPickerProps) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -82,8 +86,10 @@ export const AppPicker = ({
           <FlatList
             data={items}
             keyExtractor={(item) => item.value.toString()}
+            numColumns={numOfColumns}
             renderItem={({ item }) => (
               <PickerItemComponent
+                item={item}
                 label={item.label}
                 onPress={() => {
                   closeModal();

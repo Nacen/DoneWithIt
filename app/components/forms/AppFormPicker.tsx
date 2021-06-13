@@ -11,6 +11,7 @@ interface Props {
   name: string;
   placeholder: string;
   PickerItemComponent?: React.VFC<any>;
+  numOfColumns?: number;
 }
 
 export const AppFormPicker = ({
@@ -19,11 +20,13 @@ export const AppFormPicker = ({
   placeholder,
   width,
   PickerItemComponent,
+  numOfColumns,
 }: Props) => {
   const { errors, touched, values, setFieldValue } = useFormikContext();
   return (
     <>
       <AppPicker
+        numOfColumns={numOfColumns}
         width={width}
         items={items}
         onSelectItem={(item) => setFieldValue(name, item)}
