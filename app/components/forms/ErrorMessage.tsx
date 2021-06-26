@@ -4,7 +4,7 @@ import { AppText } from "../AppText";
 
 interface Props {
   error: string | undefined;
-  visible: boolean | undefined;
+  visible?: boolean | undefined;
   style?: TextStyle;
 }
 
