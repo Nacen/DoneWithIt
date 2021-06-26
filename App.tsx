@@ -4,13 +4,11 @@ import Screen from "./app/components/Screen";
 import * as ImagePicker from "expo-image-picker";
 import { ImageInput } from "./app/components/ImageInput";
 import { ImageInputList } from "./app/components/ImageInputList";
+import { ImageType } from "./app/config/types";
+import { ListingEditScreen } from "./app/screens/ListingEditScreen";
 
 export default function App() {
-  return (
-    <Screen style={styles.container}>
-      <ImageInputList />
-    </Screen>
-  );
+  return <ListingEditScreen />;
 }
 
 const styles = StyleSheet.create({
