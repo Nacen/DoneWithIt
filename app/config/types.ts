@@ -5,3 +5,5 @@ export type Errors = {
 export type Touched = {
   [fieldName: string]: boolean;
 };
+
+export type ImageType = string | null;
