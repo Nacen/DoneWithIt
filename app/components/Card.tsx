@@ -9,6 +9,7 @@ import {
   ImageStyle,
   ImageSourcePropType,
 } from "react-native";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 import { colors } from "../config/colors";
 import { AppText } from "./AppText";
@@ -20,10 +21,11 @@ interface Props {
   titleStyle?: StyleProp<TextStyle>;
   subTitleStyle?: StyleProp<TextStyle>;
   descriptionStyle?: StyleProp<TextStyle>;
-  imageSource: ImageSourcePropType;
+  imageUrl: string;
   description?: string;
   title: string;
   subTitle: string;
+  onPress?: (...args: any[]) => any;
 }
 
 interface Styles {
@@ -41,35 +43,38 @@ export const Card = ({
   imageStyle,
   subTitleStyle,
   descriptionStyle,
-  imageSource,
+  imageUrl,
   title,
   subTitle,
   description,
   detailsContainerStyle,
+  onPress,
 }: Props) => {
   return (
-    <View style={[styles.card, cardStyle]}>
-      <Image source={imageSource} style={[styles.image, imageStyle]} />
-      <View style={[styles.detailsContainer, detailsContainerStyle]}>
-        <AppText
-          style={StyleSheet.flatten([styles.title, titleStyle])}
-          numberOfLines={1}
-        >
-          {title}
-        </AppText>
-        <AppText
-          style={StyleSheet.flatten([styles.subTitle, subTitleStyle])}
-          numberOfLines={2}
-        >
-          {subTitle}
-        </AppText>
-        <AppText
-          style={StyleSheet.flatten([styles.description, descriptionStyle])}
-        >
-          {description}
-        </AppText>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={[styles.card, cardStyle]}>
+        <Image source={{ uri: imageUrl }} style={[styles.image, imageStyle]} />
+        <View style={[styles.detailsContainer, detailsContainerStyle]}>
+          <AppText
+            style={StyleSheet.flatten([styles.title, titleStyle])}
+            numberOfLines={1}
+          >
+            {title}
+          </AppText>
+          <AppText
+            style={StyleSheet.flatten([styles.subTitle, subTitleStyle])}
+            numberOfLines={2}
+          >
+            {subTitle}
+          </AppText>
+          <AppText
+            style={StyleSheet.flatten([styles.description, descriptionStyle])}
+          >
+            {description}
+          </AppText>
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 
