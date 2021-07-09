@@ -21,7 +21,7 @@ const initialValues = {
 
 export const RegisterScreen = (props: Props) => {
   return (
-    <Screen>
+    <Screen style={styles.container}>
       <Image source={require("../assets/logo-red.png")} style={styles.logo} />
       <AppForm
         validationSchema={validationSchema}
@@ -59,6 +59,9 @@ export const RegisterScreen = (props: Props) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    padding: 10,
+  },
   logo: {
     width: 80,
     height: 80,

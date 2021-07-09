@@ -6,8 +6,8 @@ import Screen from "../components/Screen";
 import { colors } from "../config/colors";
 import { Icon } from "../components/Icon";
 import { materialType } from "../config/materialTypes";
-
-interface Props {}
+import { StackNavigationProp } from "@react-navigation/stack";
+import { AccountNavigatorParamList } from "../navigation/AccountNavigator";
 
 type MenuItem = {
   id: string;
@@ -16,6 +16,7 @@ type MenuItem = {
     name: materialType["name"];
     backgroundColor: string;
   };
+  targetScreen: "Listings" | "Messages";
 };
 
 const MenuItems: MenuItem[] = [
@@ -26,6 +27,7 @@ const MenuItems: MenuItem[] = [
       name: "format-list-bulleted",
       backgroundColor: colors.danger,
     },
+    targetScreen: "Listings",
   },
   {
     id: "2",
@@ -34,10 +36,20 @@ const MenuItems: MenuItem[] = [
       name: "email",
       backgroundColor: colors.secondary,
     },
+    targetScreen: "Messages",
   },
 ];
 
-export const AccountScreen = (props: Props) => {
+type AccountScreenNavigationProp = StackNavigationProp<
+  AccountNavigatorParamList,
+  "Account"
+>;
+
+interface Props {
+  navigation: AccountScreenNavigationProp;
+}
+
+export const AccountScreen = ({ navigation }: Props) => {
   return (
     <Screen style={styles.accountScreen}>
       <ListItem
@@ -64,6 +76,7 @@ export const AccountScreen = (props: Props) => {
                 />
               }
               title={item.title}
+              onPress={() => navigation.navigate(item.targetScreen)}
             />
           )}
           keyExtractor={(menuItem) => menuItem.title}

@@ -1,13 +1,24 @@
 import React from "react";
 import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
 import { AppButton } from "../components/AppButton";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 import { colors } from "../config/colors";
+import { AuthStackParamList } from "../navigation/AuthNavigator";
 
 const backgroundImage = require("../assets/background.jpg");
 const logo = require("../assets/logo-red.png");
 
-export const WelcomeScreen = () => {
+type WelcomeScreenNavigationProp = StackNavigationProp<
+  AuthStackParamList,
+  "Welcome"
+>;
+
+type Props = {
+  navigation: WelcomeScreenNavigationProp;
+};
+
+export const WelcomeScreen = ({ navigation }: Props) => {
   return (
     <ImageBackground
       source={backgroundImage}
@@ -21,12 +32,12 @@ export const WelcomeScreen = () => {
       <AppButton
         label="LOGIN"
         buttonStyle={styles.register}
-        onPress={() => console.log("Login")}
+        onPress={() => navigation.navigate("Login")}
       />
       <AppButton
         label="REGISTER"
         buttonStyle={styles.login}
-        onPress={() => console.log("Register")}
+        onPress={() => navigation.navigate("Register")}
       />
     </ImageBackground>
   );
