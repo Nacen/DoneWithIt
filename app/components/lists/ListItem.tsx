@@ -70,7 +70,7 @@ export const ListItem = ({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    padding: 15,
+    padding: 20,
     backgroundColor: colors.white,
     marginLeft: 10,
     alignItems: "center",
@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 10,
     fontWeight: "500",
+    color: colors.black,
   },
   subTitle: {
     color: colors.darkGray,
